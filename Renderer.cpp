@@ -9,7 +9,7 @@ float Renderer::randomFloat(float min, float max) {
     return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
 }
 
-// Function to generate a random sf::Vector2f with negative values
+
 sf::Vector2f Renderer::randomVector2f(float minX, float maxX, float minY, float maxY) {
     float x = randomFloat(minX, maxX);
     float y = randomFloat(minY, maxY);
@@ -43,7 +43,7 @@ void Renderer::drawstars(sf::RenderWindow& window , sf::View view)
     for (const auto& star : stars) {
         sf::Vector2f starPosition = star.getPosition();
 
-        // Offset star positions to handle negative space (zoom or pan effect)
+        
         sf::Vector2f offsetPosition = starPosition + (viewCenter - currentViewSize / 2.0f);
 
 
@@ -72,25 +72,25 @@ void Renderer::drawSun(sf::RenderWindow& window, Sun& sun)
 }
 
 void Renderer::drawPlanet(sf::RenderWindow& window,  Planet& planet) {
-    // Create the main planet shape
+   
     sf::CircleShape planetShape(planet.radius * PIXELS_PER_METER);
     planetShape.setOrigin(planetShape.getRadius(), planetShape.getRadius());
     planetShape.setPosition(planet.getPosition());
 
-    // Color for the planet (a base color, you can customize it)
-    planetShape.setFillColor(sf::Color(planet.color.r, planet.color.b, planet.color.g, 50));  // A blue-ish color for the planet
+   
+    planetShape.setFillColor(sf::Color(planet.color.r, planet.color.b, planet.color.g, 50));  
 
-    // Draw the planet's surface (basic layer)
+    
     window.draw(planetShape);
 
-    // Create atmosphere (optional, if you want a glow effect around the planet)
-    sf::CircleShape atmosphere(planet.radius * PIXELS_PER_METER * 1.1f); // Slightly larger
+   
+    sf::CircleShape atmosphere(planet.radius * PIXELS_PER_METER * 1.1f); 
     atmosphere.setOrigin(atmosphere.getRadius(), atmosphere.getRadius());
     atmosphere.setPosition(planet.getPosition());
-    atmosphere.setFillColor(sf::Color(planet.color.r, planet.color.b, planet.color.g, 80)); // Semi-transparent blue atmosphere
+    atmosphere.setFillColor(sf::Color(planet.color.r, planet.color.b, planet.color.g, 80)); 
     window.draw(atmosphere);
 
-    // Add craters or surface features
+    
    
     for (const auto& crater : planet.craters) {
         sf::CircleShape craterShape(crater.second);
@@ -103,7 +103,7 @@ void Renderer::drawPlanet(sf::RenderWindow& window,  Planet& planet) {
 
 
    
-    //Example: Adding rings around the planet
+    
     sf::CircleShape ring(planet.radius * PIXELS_PER_METER * 1.1f); 
     ring.setOrigin(ring.getRadius(), ring.getRadius());
     ring.setPosition(planet.getPosition());
@@ -119,7 +119,7 @@ void Renderer::drawTrail(sf::RenderWindow& window, const Planet& planet)
     if (planet.trail.size() > 10) {
         sf::VertexArray trail(sf::LinesStrip);
 
-        // Start from the 10th point (index 10)
+       
         for (size_t i = 10; i < planet.trail.size(); ++i) {
             trail.append(sf::Vertex(planet.trail[i], planet.color));
         }

@@ -26,9 +26,9 @@ sf::Vector2f Planet::getPosition()
 }
 
 void Planet::generateCraters() {
-    craters.clear();  // Clear any previous craters
-    for (int i = 0; i < 10; ++i) { // Generate 5 craters (can adjust number)
-        float craterRadius = rand() % 2 ; // Random crater size
+    craters.clear();  
+    for (int i = 0; i < 10; ++i) { 
+        float craterRadius = rand() % 2 ; 
         float angle = rand() % 360;
         float distanceFromCenter = rand() % static_cast<int>(radius * PIXELS_PER_METER - 2 * craterRadius);
         sf::Vector2f craterPosition(

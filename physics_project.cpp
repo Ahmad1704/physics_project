@@ -42,19 +42,19 @@ while (window.isOpen()) {
         }
 
         if (event.type == sf::Event::MouseWheelScrolled) {
-            if (event.mouseWheelScroll.delta > 0) {  // Zoom in
+            if (event.mouseWheelScroll.delta > 0) {  
                 zoomLevel *= 0.9f;
                 view.zoom(0.9f);
                 Renderer::stars.clear();
             }
-            else if (event.mouseWheelScroll.delta < 0) {  // Zoom out
+            else if (event.mouseWheelScroll.delta < 0) {  
                 zoomLevel *= 1.1f;
                 view.zoom(1.1f);
                 Renderer::stars.clear();
             }
         }
 
-        // Optional: Reset zoom with a key (e.g., "R")
+      
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::R) {
             view = sf::View(sf::FloatRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT));
             zoomLevel = 1.0f;
