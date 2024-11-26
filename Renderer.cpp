@@ -127,3 +127,31 @@ void Renderer::drawTrail(sf::RenderWindow& window, const Planet& planet)
         window.draw(trail);
     }
 }
+void Renderer::displayInstructions(sf::RenderWindow& window, const sf::Font& font, const sf::View& view ,bool Status) {
+    sf::Text instructions;
+    instructions.setFont(font);
+    instructions.setCharacterSize(20);
+    instructions.setFillColor(sf::Color::White);
+    instructions.setStyle(sf::Text::Bold);
+
+    std::string message;
+
+    message += "use the mouse click to respawn planets at the mouse position\n";
+    if (!Status) {
+        message += "Press Enter to Start the Simulation\n";
+    }
+    else {
+        message += "Press P to Pause the Simulation\n";
+    }
+    message += "Use scroll to zoom in or out /n  " ;
+    message += "press R to the default View";
+
+    instructions.setString(message);
+
+    sf::Vector2f viewCenter = view.getCenter();
+    sf::Vector2f viewSize = view.getSize();
+    sf::Vector2f textPosition(viewCenter.x - viewSize.x / 2.0f + 10.0f, 
+        viewCenter.y - viewSize.y / 2.0f + 10.0f); 
+    instructions.setPosition(textPosition);
+    window.draw(instructions);
+}

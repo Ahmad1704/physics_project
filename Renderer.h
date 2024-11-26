@@ -23,7 +23,9 @@ public:
 
     static void drawPlanet(sf::RenderWindow& window, Planet& planet);
 
-    static void drawTrail(sf::RenderWindow& window, const Planet& planet); 
+    static void drawTrail(sf::RenderWindow& window, const Planet& planet);
+    static void displayInstructions(sf::RenderWindow& window, const sf::Font& font, const sf::View& view, bool Status);
+
 };
 
 

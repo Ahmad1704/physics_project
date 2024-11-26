@@ -127,8 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="CollisionListener.cpp" />
     <ClCompile Include="Convert.cpp" />
+    <ClCompile Include="EventManger.cpp" />
     <ClCompile Include="physics_project.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -136,12 +138,20 @@
     <ClCompile Include="Sun.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="CollisionListener.h" />
     <ClInclude Include="Convert.h" />
+    <ClInclude Include="EventManger.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SolarSystem.h" />
     <ClInclude Include="Sun.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Externel\milky-way-ambient-space-music-1395.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
